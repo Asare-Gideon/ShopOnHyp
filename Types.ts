@@ -28,21 +28,29 @@ export type homeScreenProps = BottomTabScreenProps<HomeTabParams, "Home">
 export interface itemProp{
   image : ImageSourcePropType,
   text : string,
+  title: string,
+  price: number
+}
+export interface categoriesProp{
+  title : string,
+  toggle: boolean
+}
+export interface imageSliderProp {
+  image : ImageSourcePropType
 }
 
 
 
-export type dataType = {
+export type categoriesDataTyp = {
   id: string;
   title: string;
-  img: ImageSourcePropType;
 }[];
 
-export type postDatType = {
+export type itemsDataType = {
   id: string;
   title: string;
   image: ImageSourcePropType;
-  description: String;
-  name: String;
+  text: String;
+  price: number;
 }[];
 
