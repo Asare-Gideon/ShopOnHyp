@@ -6,15 +6,15 @@ interface bottomState {
 
 
 const initialState : bottomState = {
-    value: true,
+    value: false,
 }
 
 const bottomNavigationSlice = createSlice({
     name: "bottomNavigation",
     initialState,
     reducers: {
-        setBottomNav(state){
-            !state.value
+        setBottomNav (state,action:PayloadAction<boolean>){
+            state.value = action.payload
         }
     }
 })

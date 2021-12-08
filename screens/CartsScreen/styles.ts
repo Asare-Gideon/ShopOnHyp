@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
         ...Fonts.body1,
         fontSize: 23,
         color: Colors.deepDarkGray,
-        
+            
     },
     contentContainer: {
         paddingLeft: 10,

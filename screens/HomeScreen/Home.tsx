@@ -34,7 +34,6 @@ const Home = ({navigation}: homeStackProp) => {
       }
     });
       setData(selectedItem);
-      console.log(selectedItem)
   };
 
   const renderCategories = ({ item }: any) => (

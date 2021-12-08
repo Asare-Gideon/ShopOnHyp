@@ -1,16 +1,18 @@
 import { AntDesign, EvilIcons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
+import { useAppDispatch } from "../app/reduxHooks/hooks";
 import images from "../constants/Images";
 import { Colors, Fonts } from "../constants/Layout";
+import { setBottomNav } from "../features/utilitySlice/bottomSlice";
 import { itemProp } from "../Types";
 
 const Items = ({ image, text, title, price,like,navigation }: itemProp) => {
-
   const [textUpdate, setTextUpdate] = useState<string>("");
   const [titleUpdate, setTitleUpdate] = useState("");
   const [loved, setLove] = useState<boolean>(false);
   const handleLike = () => {setLove(prev => !prev)}
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (title.length > 15) {
@@ -27,9 +29,19 @@ const Items = ({ image, text, title, price,like,navigation }: itemProp) => {
     }
   }, [title, text]);
 
+  const handleNav = () => {
+      dispatch(setBottomNav(true))
+    navigation.navigate("Detail")
+  }
+
+  useEffect(() => {
+    navigation.addListener("focus",()=> {
+      dispatch(setBottomNav(false))
+    })
+  },[])
   return (
     <TouchableOpacity
-     onPress={() => navigation.navigate("Detail")}
+     onPress={handleNav}
       style={{
         backgroundColor: Colors.white,
         width: 150,
