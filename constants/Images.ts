@@ -4,7 +4,8 @@ type img = ImageSourcePropType;
 
 interface ImageType {
   introScreen : img; 
-  sliders : img[] 
+  sliders : img[] ,
+  items : img[]
 }
 
 const images : ImageType = {
@@ -13,7 +14,15 @@ const images : ImageType = {
    require("../assets/images/slider1.png"),
    require("../assets/images/slider2.png"),
    require("../assets/images/slider3.png"),
- ]
+ ],
+items: [
+  require("../assets/images/item1.jpg"),
+  require("../assets/images/item2.jpg"),
+  require("../assets/images/item3.jpg"),
+  require("../assets/images/item4.jpg"),
+  require("../assets/images/item5.jpg"),
+  require("../assets/images/item6.jpg"),
+]
  
 }
 

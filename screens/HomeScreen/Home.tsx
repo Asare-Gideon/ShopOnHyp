@@ -14,18 +14,42 @@ import Items from "../../components/Items";
 import { categoriesData, itemsData, sliderData } from "../../constants/Data";
 import { styles } from "./style";
 import Slider from "../../components/Slider";
+import { homeStackProp } from "../../Types";
 
-const Home = () => {
-  const [searchValue, setSearchValue] = useState("");
+const Home = ({navigation}: homeStackProp) => {
+  const [data, setData] = useState(categoriesData);
 
-  const handleSearch = (text: string) => {
-    setSearchValue(text);
+  const handleSelected = (category: any) => {
+    const selectedItem = data.map((item) => {
+      if (category.id == item.id) {
+        return {
+          ...item,
+          selected: true,
+        };
+      } else {
+        return {
+          ...item,
+          selected: false,
+        };
+      }
+    });
+      setData(selectedItem);
+      console.log(selectedItem)
   };
 
-  const renderCategories = ({ item }: any) => <Categories title={item.title} />;
- const renderItems = ({item}: any) => (
-   <Items price={item.price} text={item.text} image={item.image} title={item.title} />
- )
+  const renderCategories = ({ item }: any) => (
+    <Categories handle={() => handleSelected(item)} toggle={item.selected} title={item.title} />
+  );
+  const renderItems = ({ item }: any) => (
+    <Items
+      like={true}
+      price={item.price}
+      text={item.text}
+      image={item.image}
+      title={item.title}
+      navigation={navigation}
+    />
+  );
   return (
     <View style={styles.main}>
       {/* SEARCH BAR CONTENT */}
@@ -46,7 +70,7 @@ const Home = () => {
       <View style={styles.categoriesCont}>
         <FlatList
           renderItem={renderCategories}
-          data={categoriesData}
+          data={data}
           keyExtractor={(item) => item.id}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
@@ -60,14 +84,14 @@ const Home = () => {
 
         <View style={styles.mainContent}>
           <Text style={styles.contentHeader}>All products</Text>
-         
+
           <FlatList
-           data={itemsData}
-           renderItem={renderItems}
-           keyExtractor={item => item.id}
-           numColumns={2}
-           showsVerticalScrollIndicator={false}
-           contentContainerStyle={styles.itemsContainer}
+            data={itemsData}
+            renderItem={renderItems}
+            keyExtractor={(item) => item.id}
+            numColumns={2}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.itemsContainer}
           />
         </View>
       </ScrollView>

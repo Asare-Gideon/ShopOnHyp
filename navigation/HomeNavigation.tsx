@@ -2,6 +2,7 @@ import { AntDesign, Entypo, EvilIcons, Feather, Ionicons } from '@expo/vector-ic
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import { useAppSelector } from '../app/reduxHooks/hooks';
 import { Colors } from '../constants/Layout';
 import Carts from '../screens/CartsScreen/Carts';
 import Home from '../screens/HomeScreen/Home';
@@ -9,9 +10,12 @@ import Order from '../screens/OrdersScreen/Order';
 import profile from '../screens/ProfileScreen/profile';
 import WishList from '../screens/WishListScreen/WishList';
 import { HomeTabParams } from '../Types';
+import HomeStackNavigation from './HomeStackNavigation';
 
 const Tab = createBottomTabNavigator<HomeTabParams>();
 const HomeNavigation = () => {
+    const nav = useAppSelector((state) => state.bottomNav.value)
+    
     return (
         <Tab.Navigator
         screenOptions={{
@@ -22,12 +26,15 @@ const HomeNavigation = () => {
                 borderTopWidth: 0,
                 backgroundColor: "white",
                 padding: 0,
+                height: nav ? 0 : 45
+                
             },
-          tabBarHideOnKeyboard :  true  
+          tabBarHideOnKeyboard :  true,
+     
           
         }}
         >
-            <Tab.Screen name="Home" component={Home}
+            <Tab.Screen name="HomeMain" component={HomeStackNavigation}
             options={{
                 tabBarIcon: ({focused}) => (
                     <View style={styles.iconCont}>
@@ -54,14 +61,14 @@ const HomeNavigation = () => {
                 tabBarIcon: ({focused}) => (
                     <View style={{
                         backgroundColor: Colors.primary,
-                        padding: 13,
+                        padding: nav? 0 :  13,
                         elevation: 1,
                         borderRadius: 30,
-                        position: "absolute",
-                        bottom: 3,
+                        position: nav ?  "relative": "absolute",
+                        bottom:nav? 0 : 3,
                         borderWidth: 5,
                         borderColor: "#ddd",
-                        zIndex: 66
+                        
                     }} >
                         <View>
                             <Ionicons name="md-cart-outline" size={25} color={focused ? Colors.warmWhite : Colors.white} />

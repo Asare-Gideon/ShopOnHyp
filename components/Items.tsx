@@ -1,36 +1,50 @@
-import { EvilIcons } from "@expo/vector-icons";
+import { AntDesign, EvilIcons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import images from "../constants/Images";
 import { Colors, Fonts } from "../constants/Layout";
 import { itemProp } from "../Types";
 
-const Items = ({ image, text, title, price }: itemProp) => {
-    const [textUpdate, setTextUpdate] = useState()
-    const [titleUpdate, setTitleUpdate] = useState()
-    
+const Items = ({ image, text, title, price,like,navigation }: itemProp) => {
+
+  const [textUpdate, setTextUpdate] = useState<string>("");
+  const [titleUpdate, setTitleUpdate] = useState("");
+  const [loved, setLove] = useState<boolean>(false);
+  const handleLike = () => {setLove(prev => !prev)}
+
   useEffect(() => {
-      if(title.length > 15){
-          
-      }
-  },[title,text])
+    if (title.length > 15) {
+      const newTitle = title.substr(0, 15).concat("...");
+      setTitleUpdate(newTitle);
+    } else {
+      setTitleUpdate(title);
+    }
+    if (text.length > 41) {
+      const newText = text.substr(0, 41).concat("...");
+      setTextUpdate(newText);
+    } else {
+      setTextUpdate(text);
+    }
+  }, [title, text]);
 
   return (
     <TouchableOpacity
+     onPress={() => navigation.navigate("Detail")}
       style={{
         backgroundColor: Colors.white,
         width: 150,
         marginRight: 10,
         marginLeft: 10,
         marginTop: 10,
-        borderRadius: 5,
-        elevation: 1
+        borderRadius: 10,
+        elevation: 2,
+        marginBottom: 4,
       }}
     >
       <View
         style={{
           width: 150,
-          height: 150,
+          height: 130,
         }}
       >
         <Image
@@ -47,16 +61,24 @@ const Items = ({ image, text, title, price }: itemProp) => {
           style={{
             ...Fonts.body3,
             paddingLeft: 5,
-            paddingTop: 2
+            paddingTop: 2,
+            color: Colors.darkgray,
           }}
         >
-          {title}
+          {titleUpdate}
         </Text>
-        <Text style={{
+        <Text
+          style={{
             ...Fonts.body4,
             paddingLeft: 5,
-        
-        }}>{text}</Text>
+            color: Colors.deepDarkGray,
+            lineHeight: 16,
+            paddingTop: 5,
+            fontSize: 14,
+          }}
+        >
+          {textUpdate}
+        </Text>
       </View>
       <View
         style={{
@@ -65,6 +87,7 @@ const Items = ({ image, text, title, price }: itemProp) => {
           padding: 2,
           paddingLeft: 5,
           paddingRight: 5,
+          paddingTop: 4
         }}
       >
         <Text
@@ -76,11 +99,31 @@ const Items = ({ image, text, title, price }: itemProp) => {
         >
           GH₵ {price}
         </Text>
-        <TouchableOpacity style={{
-            paddingTop: 4
-        }}>
-          <EvilIcons name="heart" size={28} />
-        </TouchableOpacity>
+        {like &&
+        <View>
+               {loved ? (
+          <TouchableOpacity
+          onPress={handleLike}
+            style={{
+              paddingTop: 4,
+              paddingRight: 6
+            }}
+          >
+            <AntDesign name="heart" color="red" size={24} />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+          onPress={handleLike}
+            style={{
+              paddingTop: 4,
+              paddingRight: 6
+            }}
+          >
+            <AntDesign name="hearto" color={Colors.darkgray} size={24} />
+          </TouchableOpacity>
+        )}
+        </View>
+}
       </View>
     </TouchableOpacity>
   );
