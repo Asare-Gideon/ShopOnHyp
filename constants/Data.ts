@@ -44,7 +44,17 @@ export const sliderData = [
         image: images.sliders[2]
     }
 ]
-
+export const detailSliderData = [
+    {
+        image: images.items[0]
+    },
+    {
+        image: images.items[1]
+    },
+    {
+        image: images.items[2]
+    }
+]
 export const itemsData: itemsDataType =[
     {
         id: "1",
@@ -61,24 +71,10 @@ export const itemsData: itemsDataType =[
         price: 344
     },
 {
-        id: "3",
-        title: "Jeans top",
-        text: "description of the item",
-        image: images.items[2],
-        price: 344
-    },
-{
         id: "4",
         title: "Jeans top",
         text: "description of the item",
         image: images.items[4],
-        price: 344
-    },
-{
-        id: "5",
-        title: "Jeans top",
-        text: "description of the item",
-        image: images.items[5],
         price: 344
     },
 {

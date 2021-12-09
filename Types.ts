@@ -39,7 +39,8 @@ export interface categoriesProp{
   handle : any
 }
 export interface imageSliderProp {
-  image : ImageSourcePropType
+  image : ImageSourcePropType,
+  isDetail: boolean
 }
 
 export interface cartsProp {
@@ -72,3 +73,8 @@ export type homeStackParams = {
 }
 
 export type homeStackProp = NativeStackScreenProps<homeStackParams, 'Home'>
+
+export interface sliderProp {
+  data: any,
+  isDetail?: boolean
+}

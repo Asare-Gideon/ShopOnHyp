@@ -3,7 +3,7 @@ import { View, Text, Image } from 'react-native'
 import { Sizes } from '../constants/Layout'
 import { imageSliderProp } from '../Types'
 
-const ImageSlider = ({image}:imageSliderProp) => {
+const ImageSlider = ({image,isDetail}:imageSliderProp) => {
     return (
         <View style={{
             width: "100%",
@@ -13,7 +13,10 @@ const ImageSlider = ({image}:imageSliderProp) => {
             <Image source={image} style={{
                 width: "100%",
                   height: "100%",
-                  borderRadius: 10    
+                  borderBottomLeftRadius:isDetail ? 0: 10,
+                  borderBottomRightRadius: isDetail ? 0 : 10,
+                  borderTopLeftRadius:isDetail ? 40 : 10 ,
+                  borderTopRightRadius: isDetail ? 40 : 10,    
             }} />
         </View>
     )

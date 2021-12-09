@@ -11,6 +11,7 @@ import profile from '../screens/ProfileScreen/profile';
 import WishList from '../screens/WishListScreen/WishList';
 import { HomeTabParams } from '../Types';
 import HomeStackNavigation from './HomeStackNavigation';
+import WishListStackNav from './WishListStackNav';
 
 const Tab = createBottomTabNavigator<HomeTabParams>();
 const HomeNavigation = () => {
@@ -45,7 +46,7 @@ const HomeNavigation = () => {
                 )
             }}
             />
-            <Tab.Screen name="WishList" component={WishList}
+            <Tab.Screen name="WishList" component={WishListStackNav}
             options={{
                 tabBarIcon: ({focused}) => (
                     <View style={[styles.iconCont]}>

@@ -4,8 +4,9 @@ import { View, Text, TouchableOpacity, FlatList, ScrollView } from "react-native
 import { styles } from "./styles";
 import Item from "../../components/Items";
 import { itemsData } from "../../constants/Data";
+import { homeStackProp } from "../../Types";
 
-const WishList = () => {
+const WishList = ({navigation}: homeStackProp) => {
   const renderMostViewedProducts = ({ item }: any) => (
     <Item
       image={item.image}
@@ -13,6 +14,7 @@ const WishList = () => {
       text={item.text}
       title={item.title}
       like={false}
+      navigation={navigation}
     />
   );
   return (
