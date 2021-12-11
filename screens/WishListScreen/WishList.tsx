@@ -1,12 +1,16 @@
 import { Feather } from "@expo/vector-icons";
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, TouchableOpacity, FlatList, ScrollView } from "react-native";
 import { styles } from "./styles";
 import Item from "../../components/Items";
 import { itemsData } from "../../constants/Data";
 import { homeStackProp } from "../../Types";
+import { useAppDispatch } from "../../app/reduxHooks/hooks";
+import { setBottomNav } from "../../features/utilitySlice/bottomSlice";
 
 const WishList = ({navigation}: homeStackProp) => {
+  const dispatch = useAppDispatch()
+
   const renderMostViewedProducts = ({ item }: any) => (
     <Item
       image={item.image}
@@ -17,6 +21,13 @@ const WishList = ({navigation}: homeStackProp) => {
       navigation={navigation}
     />
   );
+useEffect(() => {
+    navigation.addListener("focus",()=> {
+      dispatch(setBottomNav(false))
+    })
+  },[])
+
+
   return (
     <View style={styles.main}>
       <View style={styles.header}>
@@ -26,7 +37,6 @@ const WishList = ({navigation}: homeStackProp) => {
         </TouchableOpacity>
       </View>
       <View style={styles.viewedProducts}>
-        
         {/*LOVE PRODUCTS */}
         <FlatList
           renderItem={renderMostViewedProducts}

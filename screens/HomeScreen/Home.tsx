@@ -1,5 +1,5 @@
 import { AntDesign, Entypo, Feather } from "@expo/vector-icons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -15,9 +15,12 @@ import { categoriesData, itemsData, sliderData } from "../../constants/Data";
 import { styles } from "./style";
 import Slider from "../../components/Slider";
 import { homeStackProp } from "../../Types";
+import { useAppDispatch } from "../../app/reduxHooks/hooks";
+import { setBottomNav } from "../../features/utilitySlice/bottomSlice";
 
-const Home = ({navigation}: homeStackProp) => {
+const Home = ({ navigation }: homeStackProp) => {
   const [data, setData] = useState(categoriesData);
+  const dispatch = useAppDispatch();
 
   const handleSelected = (category: any) => {
     const selectedItem = data.map((item) => {
@@ -33,11 +36,20 @@ const Home = ({navigation}: homeStackProp) => {
         };
       }
     });
-      setData(selectedItem);
+    setData(selectedItem);
   };
+  useEffect(() => {
+    navigation.addListener("focus", () => {
+      dispatch(setBottomNav(false));
+    });
+  }, []);
 
   const renderCategories = ({ item }: any) => (
-    <Categories handle={() => handleSelected(item)} toggle={item.selected} title={item.title} />
+    <Categories
+      handle={() => handleSelected(item)}
+      toggle={item.selected}
+      title={item.title}
+    />
   );
   const renderItems = ({ item }: any) => (
     <Items
@@ -61,7 +73,10 @@ const Home = ({navigation}: homeStackProp) => {
             leftIcon={<AntDesign name="search1" size={22} />}
           />
         </View>
-        <TouchableOpacity style={styles.bellCont}>
+        <TouchableOpacity
+          style={styles.bellCont}
+          onPress={() => navigation.navigate("Notification")}
+        >
           <Feather name="bell" size={25} />
         </TouchableOpacity>
       </View>

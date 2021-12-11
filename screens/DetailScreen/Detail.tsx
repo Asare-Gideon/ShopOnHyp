@@ -13,6 +13,7 @@ import { detailSliderData, itemsData } from "../../constants/Data";
 import { Colors } from "../../constants/Layout";
 import Items from "../../components/Items";
 import { homeStackProp } from "../../Types";
+import Header from "../../components/Header"
 
 const Detail = ({ navigation }: homeStackProp) => {
   const [loved, setLoved] = React.useState<boolean>(false);
@@ -32,15 +33,7 @@ const Detail = ({ navigation }: homeStackProp) => {
 
   return (
     <View style={styles.main}>
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.headerBtn}
-          onPress={() => navigation.goBack()}
-        >
-          <AntDesign name="arrowleft" color={Colors.white} size={25} />
-        </TouchableOpacity>
-        <Text style={styles.headerText}>Details</Text>
-      </View>
+     <Header title="Details" navigation={navigation} /> 
       <ScrollView style={styles.mainContent}>
         {/* IMAGE SLIDER */}
         <View style={styles.slider}>

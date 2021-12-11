@@ -78,3 +78,8 @@ export interface sliderProp {
   data: any,
   isDetail?: boolean
 }
+
+export interface headerProp {
+  title: string,
+  navigation : any 
+}

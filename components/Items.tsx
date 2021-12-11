@@ -34,11 +34,7 @@ const Items = ({ image, text, title, price,like,navigation }: itemProp) => {
     navigation.navigate("Detail")
   }
 
-  useEffect(() => {
-    navigation.addListener("focus",()=> {
-      dispatch(setBottomNav(false))
-    })
-  },[])
+  
   return (
     <TouchableOpacity
      onPress={handleNav}
