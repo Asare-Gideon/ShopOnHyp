@@ -62,7 +62,6 @@ const HomeNavigation = () => {
                 tabBarIcon: ({focused}) => (
                     <View style={{
                         backgroundColor: Colors.primary,
-                        padding: nav? 0 :  13,
                         elevation: 1,
                         borderRadius: 30,
                         position: nav ?  "relative": "absolute",
@@ -72,7 +71,7 @@ const HomeNavigation = () => {
                         
                     }} >
                         <View>
-                            <Ionicons name="md-cart-outline" size={25} color={focused ? Colors.warmWhite : Colors.white} />
+                            <Ionicons style={{padding: 10}} name="md-cart-outline" size={28} color={focused ? Colors.warmWhite : Colors.white} />
                         </View>
                     </View>
                 )

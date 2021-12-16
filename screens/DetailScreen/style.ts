@@ -57,6 +57,12 @@ export const styles = StyleSheet.create({
     descriptionText: {
         ...Fonts.body3
     },
+    priceMain: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingRight: 8,
+        alignItems: 'center'
+    },
     price: {
       ...Fonts.body2,
       marginTop: 10,
@@ -94,6 +100,46 @@ similarHeaderText: {
     marginTop: 20,
     color: Colors.deepDarkGray,
     
+},
+sellerInfoHeader: {
+    ...Fonts.body2,
+    color: Colors.deepDarkGray,
+    paddingBottom: 10,
+    marginTop: 23
+},
+sellerInfoCont: {
+   paddingBottom:10,
+  borderTopWidth:.2,
+  borderColor: Colors.deepDarkGray,
+  paddingTop: 5
+ 
+},
+sellerDetailBtn: {
+ flexDirection: 'row',
+ justifyContent: "space-between",
+ alignItems: "center",
+ borderBottomWidth: 0.2,
+ borderColor: Colors.deepDarkGray,
+ paddingBottom: 10
+},
+sellerFollowerCont: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderBottomWidth:0.2,
+    borderColor: Colors.deepDarkGray
+},
+followerBtn: {
+    backgroundColor: Colors.primary,
+    padding: 5,
+    width: 80,
+    alignItems: "center",
+    borderRadius: 4
+},
+followerText: {
+    color: Colors.white
 }
 
 })

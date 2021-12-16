@@ -1,4 +1,4 @@
-import { AntDesign, Entypo } from "@expo/vector-icons";
+import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
 import React from "react";
 import {
   View,
@@ -13,7 +13,7 @@ import { detailSliderData, itemsData } from "../../constants/Data";
 import { Colors } from "../../constants/Layout";
 import Items from "../../components/Items";
 import { homeStackProp } from "../../Types";
-import Header from "../../components/Header"
+import Header from "../../components/Header";
 
 const Detail = ({ navigation }: homeStackProp) => {
   const [loved, setLoved] = React.useState<boolean>(false);
@@ -33,7 +33,7 @@ const Detail = ({ navigation }: homeStackProp) => {
 
   return (
     <View style={styles.main}>
-     <Header title="Details" navigation={navigation} /> 
+      <Header title="Details" navigation={navigation} />
       <ScrollView style={styles.mainContent}>
         {/* IMAGE SLIDER */}
         <View style={styles.slider}>
@@ -59,30 +59,53 @@ const Detail = ({ navigation }: homeStackProp) => {
             )}
           </View>
           <Text style={styles.descriptionText}>
-            this is the description about the products this is the description
-            about the products
+            this is the description of the products this is the description of
+            the products
           </Text>
 
-          <View style={styles.priceCont}>
-            <Text style={styles.price}>Price:</Text>
-            <Text style={styles.amount}>GH₵ 400</Text>
+          <View style={styles.priceMain}>
+            <View style={styles.priceCont}>
+              <Text style={styles.price}>Price:</Text>
+              <Text style={styles.amount}>GH₵ 400</Text>
+            </View>
+            <TouchableOpacity>
+              <Ionicons name="chatbox-ellipses-outline" size={24} />
+            </TouchableOpacity>
           </View>
 
           <TouchableOpacity style={styles.cartsBtn}>
             <Text style={styles.cartsBtnText}>Add to Carts</Text>
           </TouchableOpacity>
 
+          {/*VENDOR'S DETAILS */}
+          <Text style={styles.sellerInfoHeader}>SELLER INFROMATION</Text>
+          <View style={styles.sellerInfoCont}>
+            <TouchableOpacity style={styles.sellerDetailBtn}>
+              <Text>ROCT STORE</Text>
+              <AntDesign name="right" size={20} />
+            </TouchableOpacity>
+            <View style={styles.sellerFollowerCont}>
+              <View>
+                <Text>93% Seller Score</Text>
+                <Text>400 Followers</Text>
+              </View>
+              <TouchableOpacity style={styles.followerBtn}>
+                <Text style={styles.followerText}>Follow</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+
           {/* SIMILAR PRODUCTS */}
           <Text style={styles.similarHeaderText}>
-            Products you may also like
+            Product you may also like
           </Text>
           <FlatList
             data={itemsData}
             renderItem={renderSimilarProducts}
             keyExtractor={(item) => item.id}
+            horizontal={true}
             showsHorizontalScrollIndicator={false}
-            numColumns={2}
-            contentContainerStyle={{ paddingBottom: 20 }}
+            contentContainerStyle={{ paddingBottom: 10 }}
           />
         </View>
       </ScrollView>

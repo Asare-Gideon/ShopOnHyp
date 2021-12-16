@@ -17,6 +17,8 @@ useEffect(() => {
     return (
         <View style={styles.main}>
             <Header title="Notification" navigation={navigation} />
+
+            <View style={styles.mainContent}></View>
         </View>
     )
 }
