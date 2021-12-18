@@ -5,11 +5,12 @@ const height = Dimensions.get('window').height;
 export const Colors = {
   // base colors
   primary: "#28aeed", // blue
-  secondary: "#cb9308", // gray
+  secondary: "#eb6c22", 
 
   // colors
   black: "#1E1F20",
   white: "#FFFFFF",
+
 
   lightGray: "#F5F5F6",
   lightGray2: "#F6F6F7",

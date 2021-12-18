@@ -1,13 +1,16 @@
 import { AntDesign, Entypo } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
+import { useAppDispatch } from "../app/reduxHooks/hooks";
 import images from "../constants/Images";
 import { Colors, Fonts } from "../constants/Layout";
+import { setBottomNav } from "../features/utilitySlice/bottomSlice";
 import { cartsProp } from "../Types";
 
-const CartsItem = ({ title, image, text, price }: cartsProp) => {
+const CartsItem = ({ title, image, text, price,navigation }: cartsProp) => {
   const [titleUpdate, setTitleUpdate] = useState<string>("");
   const [textUpdate, setDescriptionUpdate] = useState("");
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     if (title && title.length > 17) {
@@ -24,8 +27,15 @@ const CartsItem = ({ title, image, text, price }: cartsProp) => {
     }
   }, [title, text]);
 
+  const handleNav = () => {
+    navigation.navigate("Detail");
+    dispatch(setBottomNav(true));
+
+  }
+
   return (
     <TouchableOpacity
+    onPress={handleNav}
       style={{
         width: "100%",
         backgroundColor: Colors.white,

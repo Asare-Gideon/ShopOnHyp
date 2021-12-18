@@ -85,3 +85,21 @@ export const itemsData: itemsDataType =[
         price: 344
     },
 ]
+
+export const feedData = [
+    {
+        id: "1",
+        storeName: "Rock Store",
+        rating: 4
+    },
+    {
+        id: "2",
+        storeName: "God Grace",
+        rating: 4
+    },
+    {
+        id: "3",
+        storeName: "Yame Ndae",
+        rating: 3
+    }
+]

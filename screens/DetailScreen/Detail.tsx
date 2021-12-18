@@ -30,6 +30,7 @@ const Detail = ({ navigation }: homeStackProp) => {
   const handleLove = () => {
     setLoved((prev) => !prev);
   };
+  
 
   return (
     <View style={styles.main}>
@@ -68,7 +69,7 @@ const Detail = ({ navigation }: homeStackProp) => {
               <Text style={styles.price}>Price:</Text>
               <Text style={styles.amount}>GH₵ 400</Text>
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("Chat")}>
               <Ionicons name="chatbox-ellipses-outline" size={24} />
             </TouchableOpacity>
           </View>
@@ -80,7 +81,7 @@ const Detail = ({ navigation }: homeStackProp) => {
           {/*VENDOR'S DETAILS */}
           <Text style={styles.sellerInfoHeader}>SELLER INFROMATION</Text>
           <View style={styles.sellerInfoCont}>
-            <TouchableOpacity style={styles.sellerDetailBtn}>
+            <TouchableOpacity style={styles.sellerDetailBtn} onPress={() => navigation.navigate("SellerHome")}>
               <Text>ROCT STORE</Text>
               <AntDesign name="right" size={20} />
             </TouchableOpacity>

@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, FlatList, ScrollView, TouchableOpacity } from "react-native";
+import { useAppDispatch } from "../../app/reduxHooks/hooks";
 import CartsItem from "../../components/CartsItem";
 import { itemsData } from "../../constants/Data";
+import { setBottomNav } from "../../features/utilitySlice/bottomSlice";
+import { homeStackProp } from "../../Types";
 import { styles } from "./styles";
 
-const Carts = () => {
+const Carts = ({navigation}:homeStackProp) => {
+const dispatch = useAppDispatch();
+
+useEffect(() => {
+    navigation.addListener("focus",()=> {
+      dispatch(setBottomNav(false))
+    })
+  },[])
+
 
   const renderCartsItem = ({ item }: any) => (
     <CartsItem
@@ -12,6 +23,7 @@ const Carts = () => {
       image={item.image}
       text={item.text}
       price={item.price}
+      navigation={navigation}
     />
   );
   return (

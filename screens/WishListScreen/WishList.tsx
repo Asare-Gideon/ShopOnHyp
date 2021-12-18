@@ -7,6 +7,7 @@ import { itemsData } from "../../constants/Data";
 import { homeStackProp } from "../../Types";
 import { useAppDispatch } from "../../app/reduxHooks/hooks";
 import { setBottomNav } from "../../features/utilitySlice/bottomSlice";
+import SearchHeader from "../../components/SearchHeader";
 
 const WishList = ({navigation}: homeStackProp) => {
   const dispatch = useAppDispatch()
@@ -30,13 +31,12 @@ useEffect(() => {
 
   return (
     <View style={styles.main}>
+      {/*SEACRH BAR */}
       <View style={styles.header}>
+      <SearchHeader navigation={navigation} /> 
+       </View>
+      <ScrollView style={styles.viewedProducts}>
         <Text style={styles.headerText}>Loved Products</Text>
-        <TouchableOpacity style={styles.bellCont}>
-          <Feather name="bell" size={25} />
-        </TouchableOpacity>
-      </View>
-      <View style={styles.viewedProducts}>
         {/*LOVE PRODUCTS */}
         <FlatList
           renderItem={renderMostViewedProducts}
@@ -46,7 +46,7 @@ useEffect(() => {
           showsVerticalScrollIndicator={false}
          contentContainerStyle={{paddingBottom: 50}} 
         />
-      </View>
+      </ScrollView>
     </View>
   );
 };

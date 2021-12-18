@@ -1,15 +1,19 @@
-import { AntDesign, Entypo, EvilIcons, Feather, Ionicons } from '@expo/vector-icons';
+import { AntDesign, Entypo, EvilIcons, Feather, FontAwesome, Ionicons, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { useAppSelector } from '../app/reduxHooks/hooks';
 import { Colors } from '../constants/Layout';
+import Account from '../screens/AccountScreen/Account';
 import Carts from '../screens/CartsScreen/Carts';
+import Feeds from '../screens/FeedScreen/Feeds';
 import Home from '../screens/HomeScreen/Home';
 import Order from '../screens/OrdersScreen/Order';
 import profile from '../screens/ProfileScreen/profile';
 import WishList from '../screens/WishListScreen/WishList';
 import { HomeTabParams } from '../Types';
+import CartStackNav from './CartStackNav';
+import FeedStackNav from './FeedStackNav';
 import HomeStackNavigation from './HomeStackNavigation';
 import WishListStackNav from './WishListStackNav';
 
@@ -37,6 +41,7 @@ const HomeNavigation = () => {
         >
             <Tab.Screen name="HomeMain" component={HomeStackNavigation}
             options={{
+                title: "Home",
                 tabBarIcon: ({focused}) => (
                     <View style={styles.iconCont}>
                         <View>
@@ -48,6 +53,7 @@ const HomeNavigation = () => {
             />
             <Tab.Screen name="WishList" component={WishListStackNav}
             options={{
+                title : "Wishlist",
                 tabBarIcon: ({focused}) => (
                     <View style={[styles.iconCont]}>
                         <View>
@@ -57,7 +63,7 @@ const HomeNavigation = () => {
                 )
             }}
             />
-            <Tab.Screen name="Carts" component={Carts}
+            <Tab.Screen name="Carts" component={CartStackNav}
             options={{
                 tabBarIcon: ({focused}) => (
                     <View style={{
@@ -77,24 +83,25 @@ const HomeNavigation = () => {
                 )
             }}
             />
-            <Tab.Screen name="Orders" component={Order}
+            <Tab.Screen name="Feeds" component={FeedStackNav}
                options={{
+                   title : "Feeds",
                 tabBarIcon: ({focused}) => (
                     <View style={styles.iconCont}>
                         <View>
-                            <Feather name="credit-card" size={23} color={focused ? Colors.primary : Colors.black} />
+                            <SimpleLineIcons name="feed" size={20} color={focused ? Colors.primary : Colors.black} />
                         </View>
                     </View>
                 )
             }}
             />
-            <Tab.Screen name="Profile" component={profile}
+            <Tab.Screen name="Account" component={Account}
              options={{
-         
+               title: "Account", 
                 tabBarIcon: ({focused}) => (
                     <View style={styles.iconCont}>
                         <View>
-                            <AntDesign name="info" size={30} color={focused ? Colors.primary : Colors.black} />
+                            <MaterialCommunityIcons name="account-outline" size={30} color={focused ? Colors.primary : Colors.black} />
                         </View>
                     </View>
                 )

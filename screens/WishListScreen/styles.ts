@@ -7,27 +7,20 @@ export const styles = StyleSheet.create({
         flex: 1,
         padding: 10,
         paddingTop: 24,
-        backgroundColor: Colors.warmWhite
-
+        backgroundColor: Colors.warmWhite,
     },
- bellCont: {
-    paddingRight: 20,
-  },
   header: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-      height: 40,
-      paddingTop: 10,
-     paddingLeft: 12 
+   width: "100%",
+   alignItems: "center",
   },
   headerText: {
       ...Fonts.body2,
-      color: Colors.deepDarkGray
+      color: Colors.deepDarkGray,
+      marginLeft: 10,
   },
   viewedProducts: {
       width: Sizes.width,
-      marginTop: 14,
+      marginTop: -10,
   },
   lovedText: {
       ...Fonts.body2,

@@ -17,11 +17,11 @@ import Slider from "../../components/Slider";
 import { homeStackProp } from "../../Types";
 import { useAppDispatch } from "../../app/reduxHooks/hooks";
 import { setBottomNav } from "../../features/utilitySlice/bottomSlice";
+import SearchHeader from "../../components/SearchHeader";
 
 const Home = ({ navigation }: homeStackProp) => {
   const [data, setData] = useState(categoriesData);
   const dispatch = useAppDispatch();
-
   const handleSelected = (category: any) => {
     const selectedItem = data.map((item) => {
       if (category.id == item.id) {
@@ -64,22 +64,7 @@ const Home = ({ navigation }: homeStackProp) => {
   return (
     <View style={styles.main}>
       {/* SEARCH BAR CONTENT */}
-      <View style={styles.searchCont}>
-        <View style={styles.searchInputCont}>
-          <Input
-            style={styles.searchInput}
-            inputContainerStyle={styles.inputCont}
-            placeholder="categories"
-            leftIcon={<AntDesign name="search1" size={22} />}
-          />
-        </View>
-        <TouchableOpacity
-          style={styles.bellCont}
-          onPress={() => navigation.navigate("Notification")}
-        >
-          <Feather name="bell" size={25} />
-        </TouchableOpacity>
-      </View>
+      <SearchHeader navigation={navigation} />
       {/* Categories list */}
       <View style={styles.categoriesCont}>
         <FlatList

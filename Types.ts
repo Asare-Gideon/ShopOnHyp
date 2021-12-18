@@ -19,8 +19,8 @@ export type initialPageProp = NativeStackScreenProps<
 export type HomeTabParams ={
   HomeMain: undefined,
   Carts: undefined,
-  Profile: undefined,
-  Orders: undefined,
+  Account: undefined,
+  Feeds: undefined,
   WishList: undefined,
 };
 export type homeScreenProps = BottomTabScreenProps<HomeTabParams, "HomeMain">
@@ -31,7 +31,7 @@ export interface itemProp{
   title: string,
   price: number,
   like?: boolean,
-  navigation: NativeStackNavigationProp<homeStackParams, "Home"> 
+  navigation: NativeStackNavigationProp<homeStackParams> 
 }
 export interface categoriesProp{
   title : string,
@@ -47,7 +47,8 @@ export interface cartsProp {
   image: ImageSourcePropType,
   title : string,
   text : string,
-  price: number
+  price: number,
+  navigation: NativeStackNavigationProp<homeStackParams>
 
 }
 
@@ -70,9 +71,11 @@ export type homeStackParams = {
   Home: undefined,
   Notification: undefined,
   Detail : undefined,
+  Chat: undefined,
+  SellerHome: undefined,
 }
 
-export type homeStackProp = NativeStackScreenProps<homeStackParams, 'Home'>
+export type homeStackProp = NativeStackScreenProps<homeStackParams>
 
 export interface sliderProp {
   data: any,
@@ -81,5 +84,21 @@ export interface sliderProp {
 
 export interface headerProp {
   title: string,
-  navigation : any 
+  navigation? : any 
+}
+
+export interface followingProp {
+ storeName: string;
+ rating: number,
+ navigation: NativeStackNavigationProp<homeStackParams>
+}
+
+export interface searchHeaderProp {
+  navigation: NativeStackNavigationProp<homeStackParams> 
+}
+
+export interface accountComponentProp {
+  Icon?: any,
+  IconName?: string,
+  title: string
 }
