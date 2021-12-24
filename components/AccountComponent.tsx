@@ -1,12 +1,22 @@
 import { AntDesign } from '@expo/vector-icons'
 import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
+import { useAppDispatch } from '../app/reduxHooks/hooks'
 import { Colors, Fonts } from '../constants/Layout'
+import { setBottomNav } from '../features/utilitySlice/bottomSlice'
 import { accountComponentProp } from '../Types'
 
-const AccountComponent = ({Icon, IconName, title}: accountComponentProp) => {
+const AccountComponent = ({Icon, IconName, title, navigation,navigateTo}: accountComponentProp) => {
+    const dispatch = useAppDispatch();
+
+   const handelNav = () => {
+       navigation.navigate(navigateTo)
+       dispatch(setBottomNav(true))
+   }
+
     return (
      <TouchableOpacity
+     onPress={handelNav}
      style={{
          flexDirection: "row",
          alignItems: "center",
@@ -36,4 +46,4 @@ const AccountComponent = ({Icon, IconName, title}: accountComponentProp) => {
     ) 
 }
 
-export default AccountComponent
+export default AccountComponent;

@@ -19,7 +19,7 @@ export type initialPageProp = NativeStackScreenProps<
 export type HomeTabParams ={
   HomeMain: undefined,
   Carts: undefined,
-  Account: undefined,
+  AccountNav: undefined,
   Feeds: undefined,
   WishList: undefined,
 };
@@ -73,6 +73,7 @@ export type homeStackParams = {
   Detail : undefined,
   Chat: undefined,
   SellerHome: undefined,
+  Order: undefined,
 }
 
 export type homeStackProp = NativeStackScreenProps<homeStackParams>
@@ -101,4 +102,18 @@ export interface accountComponentProp {
   Icon?: any,
   IconName?: string,
   title: string
+  navigation: NativeStackNavigationProp<AccountParams, "Account">
+  navigateTo: any
 }
+
+export type AccountParams = {
+  Account: undefined
+  Orders: undefined,
+  Inbox: undefined,
+  PendingReview : undefined,
+  Help: undefined,
+  ChangePassword: undefined, 
+}
+
+export  type accouontProp = NativeStackScreenProps<AccountParams, "Account">
+

@@ -6,7 +6,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import useCachedResources from './hooks/useCachedResources';
 import HomeNavigation from './navigation/HomeNavigation';
 import InitialNavigation from './navigation/InitialNavigation';
-import Initial from './screens/InitialScreen/Initial';
+import Initial from './screens/UsersScreens/InitialScreen/Initial';
 
 export default function Main() {
   const isLoadingComplete = useCachedResources();

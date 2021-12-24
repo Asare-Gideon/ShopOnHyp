@@ -4,14 +4,8 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { useAppSelector } from '../app/reduxHooks/hooks';
 import { Colors } from '../constants/Layout';
-import Account from '../screens/AccountScreen/Account';
-import Carts from '../screens/CartsScreen/Carts';
-import Feeds from '../screens/FeedScreen/Feeds';
-import Home from '../screens/HomeScreen/Home';
-import Order from '../screens/OrdersScreen/Order';
-import profile from '../screens/ProfileScreen/profile';
-import WishList from '../screens/WishListScreen/WishList';
 import { HomeTabParams } from '../Types';
+import AccountNav from './AccountNav';
 import CartStackNav from './CartStackNav';
 import FeedStackNav from './FeedStackNav';
 import HomeStackNavigation from './HomeStackNavigation';
@@ -95,7 +89,7 @@ const HomeNavigation = () => {
                 )
             }}
             />
-            <Tab.Screen name="Account" component={Account}
+            <Tab.Screen name="AccountNav" component={AccountNav}
              options={{
                title: "Account", 
                 tabBarIcon: ({focused}) => (
