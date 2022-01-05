@@ -1,6 +1,7 @@
 import { EvilIcons } from "@expo/vector-icons";
 import React from "react";
 import { View, Text, TouchableOpacity, FlatList, ScrollView } from "react-native";
+import { Rating } from "react-native-elements";
 import Items from "../../../components/Items";
 import SearchHeader from "../../../components/SearchHeader";
 import { itemsData } from "../../../constants/Data";
@@ -36,11 +37,12 @@ const SellerHome = ({ navigation }: homeStackProp) => {
           </TouchableOpacity>
         </View>
         <View style={styles.starCont}>
-          <EvilIcons name="star" size={23} color={Colors.secondary} />
-          <EvilIcons name="star" size={23} color={Colors.secondary} />
-          <EvilIcons name="star" size={23} color={Colors.secondary} />
-          <EvilIcons name="star" size={23} />
-          <EvilIcons name="star" size={23} />
+        <Rating
+            type="star"
+            readonly
+            imageSize={20}
+            style={{ paddingVertical: 4 }}
+          />
         </View>
       </View>
  

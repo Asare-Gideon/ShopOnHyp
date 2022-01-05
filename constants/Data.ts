@@ -103,3 +103,54 @@ export const feedData = [
         rating: 3
     }
 ]
+
+export const chartData = {
+     labels: ["January", "February", "March", "April", "May", "June"],
+     datasets: [
+        {
+          data: [
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100
+          ]
+        }
+      ]
+}
+
+export const chatData = [
+    {
+        id: "2",
+        name: "name of the product",
+        image: images.items[2],
+        time: "3:40",
+        number: 5,
+        message: "description of the products"
+    },
+    {
+        id: "3",
+        name: "name of the product",
+        image: images.items[1],
+        time: "3:40",
+        number: 3,
+        message: "description of the products"
+    },
+    {
+        id: "4",
+        name: "name of the product",
+        image: images.items[3],
+        time: "3:40",
+        number: 10,
+        message: "description of the products"
+    },
+    {
+        id: "5",
+        name: "name of the product",
+        image: images.items[4],
+        time: "3:40",
+        number: 2,
+        message: "description of the products"
+    },
+]

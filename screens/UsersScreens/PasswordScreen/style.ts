@@ -11,5 +11,10 @@ export const styles = StyleSheet.create({
     contentCont: {
         flex: 1,
         backgroundColor: Colors.white,
+    },
+    inputCont: {
+        marginTop: 20,
+        paddingLeft: 10,
+        paddingRight: 10
     }
 })

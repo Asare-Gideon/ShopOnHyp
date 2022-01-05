@@ -1,6 +1,7 @@
 import { AntDesign, EvilIcons, FontAwesome5 } from "@expo/vector-icons";
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { Rating } from "react-native-elements";
 import { useAppDispatch } from "../app/reduxHooks/hooks";
 import images from "../constants/Images";
 import { Colors, Fonts } from "../constants/Layout";
@@ -43,11 +44,12 @@ const Following = ({storeName,rating,navigation}: followingProp) => {
             </TouchableOpacity>
           </View>
           <View style={styles.startCont}>
-            <EvilIcons name="star" size={23} color={Colors.secondary} />
-            <EvilIcons name="star" size={23}  color={Colors.secondary}/>
-            <EvilIcons name="star" size={23}  color={Colors.secondary}/>
-            <EvilIcons name="star" size={23} />
-            <EvilIcons name="star" size={23} />
+        <Rating
+            type="star"
+            readonly
+            imageSize={20}
+            style={{ paddingVertical: 5}}
+          />
           </View>
         </View>
       </View>
