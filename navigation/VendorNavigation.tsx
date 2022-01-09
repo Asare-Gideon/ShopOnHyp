@@ -4,7 +4,7 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { useAppSelector } from '../app/reduxHooks/hooks';
 import { Colors } from '../constants/Layout';
-import Chat from '../screens/VendorsScreens/ChatScreen/Chat';
+import Chat from '../screens/VendorsScreens/MessageScreen/ChatMessage';
 import Home from '../screens/VendorsScreens/HomeScreen/Home';
 import Post from '../screens/VendorsScreens/PostScreen/Post';
 import { VendorHomeTabParams } from '../Types';

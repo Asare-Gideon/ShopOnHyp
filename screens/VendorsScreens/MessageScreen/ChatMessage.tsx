@@ -6,7 +6,7 @@ import images from "../../../constants/Images";
 import { vendorChatProp } from "../../../Types";
 import { styles } from "./styles";
 
-const Chat = ({navigation}:vendorChatProp) => {
+const ChatMessage = ({navigation}:vendorChatProp) => {
     const handleNav = () => {
         navigation.navigate("ActiveChat")
     }
@@ -39,4 +39,4 @@ const renderChat = ({item}: any) =>  (
   );
 };
 
-export default Chat;
+export default ChatMessage;

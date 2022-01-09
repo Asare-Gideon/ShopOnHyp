@@ -41,15 +41,7 @@ const Message = ({ message, image, time, name, handle,number }: messageProp) => 
               justifyContent: "center",
             }}
           >
-              <View style={{
-                  width: 7,
-                  height: 7,
-                  position: "absolute",
-                  backgroundColor: "red",
-                  borderRadius: 20,
-                  bottom : 0,
-                  zIndex: 55
-              }}></View>
+
             <Image
               source={image}
               style={{

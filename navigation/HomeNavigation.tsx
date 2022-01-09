@@ -67,7 +67,7 @@ const HomeNavigation = () => {
                         position: nav ?  "relative": "absolute",
                         bottom:nav? 0 : 3,
                         borderWidth: 5,
-                        borderColor: "#ddd",
+                        borderColor: Colors.warmWhite,
                         
                     }} >
                         <View>

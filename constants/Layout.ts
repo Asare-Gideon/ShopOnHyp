@@ -19,7 +19,7 @@ export const Colors = {
   transparent: "transparent",
   darkgray: "#555555",
   deepDarkGray : "#8f8f8f",
-  warmWhite : "#ebebeb"
+  warmWhite : "#f1f1f1"
 };
 export const Sizes = {
     width,
