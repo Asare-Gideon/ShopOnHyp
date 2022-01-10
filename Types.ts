@@ -29,6 +29,12 @@ export type VendorHomeTabParams = {
   Chat: undefined;
   Account: undefined;
 };
+export type RiderTabParams ={
+  RiderMain : undefined,
+  Offers: undefined,
+  Notification: undefined,
+  Profile: undefined,
+}
 export type homeScreenProps = BottomTabScreenProps<HomeTabParams, "HomeMain">;
 
 export interface itemProp {
@@ -154,3 +160,13 @@ export type vendorChatNavParams = {
 }
 
 export type vendorChatProp = NativeStackScreenProps<vendorChatNavParams, "ChatHome">  
+
+export type riderNavParam  = {
+  RiderHome: undefined,
+}
+
+export type riderHomeParam = {
+  RidersHome: undefined,
+  RidersDetail : undefined,
+}
+export type riderHomeProp =  NativeStackScreenProps<riderHomeParam, "RidersHome">

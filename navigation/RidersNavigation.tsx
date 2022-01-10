@@ -1,17 +1,19 @@
-import {  Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import {  AntDesign, Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { useAppSelector } from '../app/reduxHooks/hooks';
 import { Colors } from '../constants/Layout';
-import Home from '../screens/VendorsScreens/HomeScreen/Home';
+import Notification from '../screens/RidersScreens/NotificationScreen/Notification';
+import Offer from '../screens/RidersScreens/OffersScreen/Offer';
 import Post from '../screens/VendorsScreens/PostScreen/Post';
-import { VendorHomeTabParams } from '../Types';
+import { RiderTabParams, VendorHomeTabParams } from '../Types';
 import AccountNav from './AccountNav';
+import RidersHomeNav from './RidersHomeNav';
 import VendorChartNav from './VendorChartNav';
 
-const Tab = createBottomTabNavigator<VendorHomeTabParams>();
-const VendorNavigation = () => {
+const Tab = createBottomTabNavigator<RiderTabParams>();
+const RidersNavigation = () => {
 const nav = useAppSelector((state) => state.bottomNav.value)
     
     return (
@@ -32,7 +34,7 @@ const nav = useAppSelector((state) => state.bottomNav.value)
           
         }}
         >
-            <Tab.Screen name="VendorsHome" component={Home}
+            <Tab.Screen name="RiderMain" component={RidersHomeNav}
             options={{
                 title: "Home",
                 tabBarIcon: ({focused}) => (
@@ -44,25 +46,25 @@ const nav = useAppSelector((state) => state.bottomNav.value)
                 )
             }}
             />
-            <Tab.Screen name="Post" component={Post}
+            <Tab.Screen name="Offers" component={Offer}
             options={{
-                title : "Post",
+                title : "Offers",
                 tabBarIcon: ({focused}) => (
                     <View style={[styles.iconCont]}>
                         <View>
-                            <MaterialIcons name="post-add" size={30} color={focused ? Colors.primary : Colors.black} />
+                            <AntDesign name="carryout" size={30} color={focused ? Colors.primary : Colors.black} />
                         </View>
                     </View>
                 )
             }}
             />
-           <Tab.Screen name="Chat" component={VendorChartNav}
+           <Tab.Screen name="Notification" component={Notification}
                options={{
-                   title : "Chat",
+                   title : "Not",
                 tabBarIcon: ({focused}) => (
                     <View style={styles.iconCont}>
                         <View>
-                            <Ionicons name="chatbox-ellipses-outline" size={24} color={focused ? Colors.primary : Colors.black} />
+                            <AntDesign name="bells" size={24} color={focused ? Colors.primary : Colors.black} />
                         </View>
                     </View>
                 )
@@ -92,4 +94,4 @@ const styles = StyleSheet.create({
     
 })
 
-export default VendorNavigation
+export default RidersNavigation
