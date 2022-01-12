@@ -3,18 +3,32 @@ import { Avatar } from "react-native-elements";
 import images from "../../../constants/Images";
 import { Colors, Sizes } from "../../../constants/Layout";
 import { styles } from "./styles";
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { chartData } from "../../../constants/Data";
 import { LineChart } from "react-native-chart-kit";
 import Card from "../../../components/Card";
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons'
+import { vendorHomeProp } from "../../../Types";
+import { useAppDispatch } from "../../../app/reduxHooks/hooks";
+import { setBottomNav } from "../../../features/utilitySlice/bottomSlice";
 
-const Home = () => {
+const Home = ({navigation}: vendorHomeProp) => {
+  const dispatch = useAppDispatch();
+
+const handleProfileNav = () => {
+  navigation.navigate("VendorDetail");
+   dispatch(setBottomNav(true))
+}
+  useEffect(() => {
+    navigation.addListener("focus", () => {
+      dispatch(setBottomNav(false));
+    });
+  }, []);
   return (
     <View style={styles.main}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Hi George,</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleProfileNav}>
           <Avatar
             rounded
             containerStyle={{ backgroundColor: Colors.darkgray }}
@@ -67,7 +81,6 @@ const Home = () => {
           <Card title="Earning" text="$3340.00" Icon={AntDesign} iconName="pay-circle-o1" />
           <Card title="Product Sold" text="607" Icon={MaterialCommunityIcons} iconName="credit-card-check-outline" color="#953ff3" lightColor="#e5dcef" />
           </View>
-
         </View>
       </ScrollView>
     </View>

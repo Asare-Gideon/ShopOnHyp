@@ -13,7 +13,7 @@ import Initial from "./screens/UsersScreens/InitialScreen/Initial";
 export default function Main() {
   const isLoadingComplete = useCachedResources();
   const [isLogIn, setIsLogIn] = React.useState<boolean>(true);
-  const [isUser, setIsUser] = React.useState("rider");
+  const [isUser, setIsUser] = React.useState("vendor");
 
   if (!isLoadingComplete) {
     return null;

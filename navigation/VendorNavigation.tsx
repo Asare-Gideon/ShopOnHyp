@@ -4,11 +4,11 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { useAppSelector } from '../app/reduxHooks/hooks';
 import { Colors } from '../constants/Layout';
-import Home from '../screens/VendorsScreens/HomeScreen/Home';
 import Post from '../screens/VendorsScreens/PostScreen/Post';
 import { VendorHomeTabParams } from '../Types';
 import AccountNav from './AccountNav';
 import VendorChartNav from './VendorChartNav';
+import VendorHomeNav from './VendorHomeNav';
 
 const Tab = createBottomTabNavigator<VendorHomeTabParams>();
 const VendorNavigation = () => {
@@ -32,7 +32,7 @@ const nav = useAppSelector((state) => state.bottomNav.value)
           
         }}
         >
-            <Tab.Screen name="VendorsHome" component={Home}
+            <Tab.Screen name="VendorsHome" component={VendorHomeNav}
             options={{
                 title: "Home",
                 tabBarIcon: ({focused}) => (
@@ -61,6 +61,7 @@ const nav = useAppSelector((state) => state.bottomNav.value)
                    title : "Chat",
                 tabBarIcon: ({focused}) => (
                     <View style={styles.iconCont}>
+                        <Text style={[styles.badge, {top :nav? 100: -10 }]}>4</Text>
                         <View>
                             <Ionicons name="chatbox-ellipses-outline" size={24} color={focused ? Colors.primary : Colors.black} />
                         </View>
@@ -89,6 +90,19 @@ const styles = StyleSheet.create({
     iconCont: {
         display: 'flex'
     },
+  badge: {
+    position: "absolute",
+    top: -10,
+    backgroundColor: "#ed554d",
+    width: 19,
+    height: 19,
+    color: "white",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    borderRadius: 30,
+    right: -13,
+  },
     
 })
 

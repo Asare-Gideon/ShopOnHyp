@@ -33,7 +33,7 @@ export type RiderTabParams ={
   RiderMain : undefined,
   Offers: undefined,
   Notification: undefined,
-  Profile: undefined,
+  Account: undefined,
 }
 export type homeScreenProps = BottomTabScreenProps<HomeTabParams, "HomeMain">;
 
@@ -170,3 +170,23 @@ export type riderHomeParam = {
   RidersDetail : undefined,
 }
 export type riderHomeProp =  NativeStackScreenProps<riderHomeParam, "RidersHome">
+
+export type vendorHomeParam = {
+  VendorHome: undefined,
+  VendorDetail : undefined,
+}
+export type vendorHomeProp =  NativeStackScreenProps<vendorHomeParam, "VendorHome">
+
+
+export type offerComponentProp = {
+  image: ImageSourcePropType,
+  storeName: string,
+  productName: string,
+  time: any,
+
+}
+export type notProp = {
+  name : string,
+  message: string,
+  time: any
+}
