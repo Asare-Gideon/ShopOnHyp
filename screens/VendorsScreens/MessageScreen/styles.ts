@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: Colors.warmWhite,
         width: Sizes.width,
-        paddingTop: 24,
+        paddingTop: Sizes.paddingTop,
     },
 header: {
     width: "100%",

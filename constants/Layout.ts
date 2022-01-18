@@ -33,6 +33,7 @@ export const Sizes = {
   padding: 10,
   padding2: 12,
   status : 25,
+  paddingTop: 34,
 
   // font sizes
   largeTitle: 50,

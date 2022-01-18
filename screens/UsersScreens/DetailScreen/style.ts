@@ -4,7 +4,7 @@ import { Colors, Fonts, Sizes } from "../../../constants/Layout";
 
 export const styles = StyleSheet.create({
     main: {
-        paddingTop: 24,
+        paddingTop:Sizes.paddingTop ,
         width: Sizes.width,
         flex: 1,
         zIndex:666,

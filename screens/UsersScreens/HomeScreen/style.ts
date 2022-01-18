@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     width: Sizes.width,
     flex: 1,
     backgroundColor: Colors.warmWhite,
-    paddingTop: 23,
+    paddingTop: 34,
   },
   searchCont: {
     width: Sizes.width,

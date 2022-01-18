@@ -4,6 +4,7 @@ import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import useCachedResources from "./hooks/useCachedResources";
+import AdminNavigation from "./navigation/AdminNavigation";
 import HomeNavigation from "./navigation/HomeNavigation";
 import InitialNavigation from "./navigation/InitialNavigation";
 import RidersNavigation from "./navigation/RidersNavigation";
@@ -13,7 +14,7 @@ import Initial from "./screens/UsersScreens/InitialScreen/Initial";
 export default function Main() {
   const isLoadingComplete = useCachedResources();
   const [isLogIn, setIsLogIn] = React.useState<boolean>(true);
-  const [isUser, setIsUser] = React.useState("vendor");
+  const [isUser, setIsUser] = React.useState("admin");
 
   if (!isLoadingComplete) {
     return null;
@@ -31,12 +32,20 @@ export default function Main() {
             <RidersNavigation />
           </NavigationContainer>
         );
-      }
+      }else if(isUser === "user"){
       return (
         <NavigationContainer>
           <HomeNavigation />
         </NavigationContainer>
       );
+}else if(isUser === "admin"){
+return (
+        <NavigationContainer>
+          <AdminNavigation />
+        </NavigationContainer>
+      );
+}
+
     } else {
       return (
         <NavigationContainer>

@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         width: Sizes.width,
         backgroundColor: Colors.primary,
-        paddingTop: 24,
+        paddingTop: Sizes.paddingTop,
     },
     mainContent: {
         flex: 0.92,

@@ -35,11 +35,12 @@ export type RiderTabParams ={
   Notification: undefined,
   Account: undefined,
 }
+
 export type homeScreenProps = BottomTabScreenProps<HomeTabParams, "HomeMain">;
 
 export interface itemProp {
   image: ImageSourcePropType;
-  text: string;
+  text: string,
   title: string;
   price: number;
   like?: boolean;
@@ -190,3 +191,10 @@ export type notProp = {
   message: string,
   time: any
 }
+export type AdminParams = {
+  AdminHome: undefined,
+  Post: undefined,
+  Detail: undefined,
+  Notification: undefined,
+  Account: undefined
+} 

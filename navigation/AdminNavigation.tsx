@@ -9,20 +9,21 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { useAppSelector } from "../app/reduxHooks/hooks";
 import { Colors } from "../constants/Layout";
+import AdminHome from "../screens/AdminScreens/HomeScreen/AdminHome";
+import AdminNot from "../screens/AdminScreens/NotificationScreen/AdminNot";
+import AdminPost from "../screens/AdminScreens/PostScreen/AdminPost";
 import Notification from "../screens/RidersScreens/NotificationScreen/Notification";
-import Offer from "../screens/RidersScreens/OffersScreen/Offer";
-import Post from "../screens/VendorsScreens/PostScreen/Post";
-import { RiderTabParams, VendorHomeTabParams } from "../Types";
+import { AdminParams, RiderTabParams, VendorHomeTabParams } from "../Types";
 import AccountNav from "./AccountNav";
-import RidersHomeNav from "./RidersHomeNav";
-import VendorChartNav from "./VendorChartNav";
 
-const Tab = createBottomTabNavigator<RiderTabParams>();
-const RidersNavigation = () => {
+
+const Tab = createBottomTabNavigator<AdminParams>();
+
+const AdminNavigation = () => {
   const nav = useAppSelector((state) => state.bottomNav.value);
 
-  return (
-    <Tab.Navigator
+    return (
+           <Tab.Navigator
       screenOptions={{
         headerShown: false,
         title: "",
@@ -37,8 +38,8 @@ const RidersNavigation = () => {
       }}
     >
       <Tab.Screen
-        name="RiderMain"
-        component={RidersHomeNav}
+        name="AdminHome"
+        component={AdminHome}
         options={{
           title: "Home",
           tabBarIcon: ({ focused }) => (
@@ -55,13 +56,12 @@ const RidersNavigation = () => {
         }}
       />
       <Tab.Screen
-        name="Offers"
-        component={Offer}
+        name="Post"
+        component={AdminPost}
         options={{
-          title: "Offers",
+          title: "Post",
           tabBarIcon: ({ focused }) => (
             <View style={[styles.iconCont]}>
-                <Text style={[styles.badge, {top :nav? 100: -10 }]}>2</Text>
               <View>
                 <AntDesign
                   name="carryout"
@@ -75,7 +75,7 @@ const RidersNavigation = () => {
       />
       <Tab.Screen
         name="Notification"
-        component={Notification}
+        component={AdminNot}
         options={{
           title: "Notifications",
           tabBarIcon: ({ focused }) => (
@@ -111,8 +111,8 @@ const RidersNavigation = () => {
         }}
       />
     </Tab.Navigator>
-  );
-};
+    )
+}
 
 const styles = StyleSheet.create({
   iconCont: {
@@ -133,4 +133,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RidersNavigation;
+
+export default AdminNavigation
