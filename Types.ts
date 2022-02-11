@@ -124,6 +124,7 @@ export type AccountParams = {
   PendingReview: undefined;
   Help: undefined;
   ChangePassword: undefined;
+  Details: undefined,
 };
 
 export type accouontProp = NativeStackScreenProps<AccountParams, "Account">;

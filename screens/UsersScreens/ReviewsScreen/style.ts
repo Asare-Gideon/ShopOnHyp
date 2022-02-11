@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Colors, Sizes } from "../../../constants/Layout";
+import { Colors, Fonts, Sizes } from "../../../constants/Layout";
 
 export const styles = StyleSheet.create({
     main: {
@@ -8,8 +8,22 @@ export const styles = StyleSheet.create({
         paddingTop: Sizes.paddingTop,
         backgroundColor: Colors.primary,
     },
+    nav: {
+        flex: 0.1,
+        backgroundColor: Colors.white,
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        paddingTop: 10
+    },
+    navText: {
+      ...Fonts.h4,
+      color: Colors.darkgray,
+      paddingBottom: 4,
+      borderColor: Colors.primary
+    },
     contentCont: {
-        flex: 1,
+        flex: 0.8,
         backgroundColor: Colors.white
+
     }
 })
