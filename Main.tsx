@@ -1,5 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
+import HomeLoader from './components/HomeLoader';
+import Shimmering from './components/Shimmering';
 import useCachedResources from './hooks/useCachedResources';
 import AdminNavigation from './navigation/AdminNavigation';
 import HomeNavigation from './navigation/HomeNavigation';
@@ -10,7 +12,7 @@ import VendorNavigation from './navigation/VendorNavigation';
 export default function Main() {
 	const isLoadingComplete = useCachedResources();
 	const [ isLogIn, setIsLogIn ] = React.useState<boolean>(true);
-	const [ isUser, setIsUser ] = React.useState('user');
+	const [ isUser, setIsUser ] = React.useState('vendor');
 
 	if (!isLoadingComplete) {
 		return null;

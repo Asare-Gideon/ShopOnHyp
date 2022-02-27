@@ -5,6 +5,7 @@ type img = ImageSourcePropType;
 interface ImageType {
   introScreen : img; 
   addImage: img;
+  carts: img;
   sliders : img[] ,
   items : img[]
 }
@@ -12,6 +13,7 @@ interface ImageType {
 const images : ImageType = {
  introScreen : require("../assets/images/img2.jpg") ,
 addImage:  require("../assets/images/add.png") ,
+carts:  require("../assets/images/carts.png") ,
  sliders : [
    require("../assets/images/slider1.png"),
    require("../assets/images/slider2.png"),

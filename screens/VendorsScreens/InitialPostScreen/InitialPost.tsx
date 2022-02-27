@@ -4,23 +4,25 @@ import { View, Text, TouchableOpacity, FlatList, ScrollView } from 'react-native
 import { styles } from './styles';
 import Item from '../../../components/Items';
 import { itemsData } from '../../../constants/Data';
-import { homeStackProp } from '../../../Types';
+import { homeStackProp, PostStackProps } from '../../../Types';
 import { useAppDispatch } from '../../../app/reduxHooks/hooks';
 import { setBottomNav } from '../../../features/utilitySlice/bottomSlice';
 import SearchHeader from '../../../components/SearchHeader';
 import WishListLoader from '../../../components/WishListLoader';
+import VendorProduct from '../../../components/VendorProducts';
+import VendorSearchHeader from '../../../components/VendorSearchHeader';
+import { Button, FAB } from 'react-native-elements';
+import { Colors } from '../../../constants/Layout';
 
-const WishList = ({ navigation }: homeStackProp) => {
+const InitialPost = ({ navigation }: PostStackProps) => {
 	const dispatch = useAppDispatch();
-	const [ isLoaded, setIsLoaded ] = useState<boolean>(false);
-
+	const [ isLoaded, setIsLoaded ] = useState<boolean>(true);
 	const renderMostViewedProducts = ({ item }: any) => (
-		<Item
+		<VendorProduct
 			image={item.image}
 			price={item.price}
 			text={item.text}
 			title={item.title}
-			like={false}
 			navigation={navigation}
 		/>
 	);
@@ -34,11 +36,11 @@ const WishList = ({ navigation }: homeStackProp) => {
 		<View style={[ styles.main, { padding: isLoaded ? 10 : 0 } ]}>
 			{/*SEACRH BAR */}
 			<View style={styles.header}>
-				<SearchHeader navigation={navigation} />
+				<VendorSearchHeader navigation={navigation} />
 			</View>
 			{isLoaded ? (
 				<ScrollView style={styles.viewedProducts}>
-					<Text style={styles.headerText}>Loved Products</Text>
+					<Text style={styles.headerText}>All Products</Text>
 					{/*LOVE PRODUCTS */}
 					<FlatList
 						renderItem={renderMostViewedProducts}
@@ -54,8 +56,33 @@ const WishList = ({ navigation }: homeStackProp) => {
 					<WishListLoader />
 				</View>
 			)}
+			<View
+				style={{
+					position: 'absolute',
+					bottom: 10,
+					right: 4,
+					height: 70,
+					width: 70,
+					padding: 10,
+					alignItems: 'center'
+				}}
+			>
+				<FAB
+					visible={true}
+					icon={{ name: 'add', color: 'white' }}
+					color={Colors.primary}
+					placement="right"
+					containerStyle={{
+						elevation: 10,
+						borderRadius: 40,
+						alignSelf: 'center'
+					}}
+					buttonStyle={{ borderRadius: 30 }}
+					onPress={() => navigation.navigate('Detail')}
+				/>
+			</View>
 		</View>
 	);
 };
 
-export default WishList;
+export default InitialPost;

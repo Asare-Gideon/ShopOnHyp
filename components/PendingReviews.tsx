@@ -2,11 +2,7 @@ import { View, Text } from 'react-native';
 import React from 'react';
 
 const PendingReviews = () => {
-	return (
-		<View>
-			<Text>hello there</Text>
-		</View>
-	);
+	return <View />;
 };
 
 export default PendingReviews;

@@ -5,9 +5,9 @@ import { useAppDispatch } from '../app/reduxHooks/hooks';
 import images from '../constants/Images';
 import { Colors, Fonts } from '../constants/Layout';
 import { setBottomNav } from '../features/utilitySlice/bottomSlice';
-import { itemProp } from '../Types';
+import { VendorItemProp } from '../Types';
 
-const Items = ({ image, text, title, price, like, navigation }: itemProp) => {
+const VendorProduct = ({ image, text, title, price, like, navigation }: VendorItemProp) => {
 	const [ textUpdate, setTextUpdate ] = useState<string>('');
 	const [ titleUpdate, setTitleUpdate ] = useState('');
 	const [ loved, setLove ] = useState<boolean>(false);
@@ -141,4 +141,4 @@ const Items = ({ image, text, title, price, like, navigation }: itemProp) => {
 	);
 };
 
-export default Items;
+export default VendorProduct;

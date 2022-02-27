@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text, FlatList, ScrollView } from 'react-native'
 import { useAppDispatch } from '../../../app/reduxHooks/hooks'
+import FeedsLoader from '../../../components/FeedsLoader'
 import Following from '../../../components/Following'
 import SearchHeader from '../../../components/SearchHeader'
 import { feedData } from '../../../constants/Data'
@@ -10,6 +11,7 @@ import { styles } from './styles'
 
 const Feeds = ({navigation}: homeStackProp) => {
     const dispatch = useAppDispatch();
+    const [isLoaded, setIsLoader] = useState<boolean>(false)
     const renderFeeds = ({item}: any) => (
         <Following navigation={navigation} storeName={item.storeName} rating={item.rating} />
     )
@@ -23,7 +25,10 @@ const Feeds = ({navigation}: homeStackProp) => {
         <View style={styles.main}>
            {/* SEARCH BAR CONTENT */}
            <SearchHeader navigation={navigation}/>
-          <ScrollView style={styles.ContentContainer}>
+           {
+             isLoaded ? (
+              <>
+        <ScrollView style={styles.ContentContainer}>
            <Text style={styles.headerTitle}>Feed</Text>
             <FlatList 
             renderItem={renderFeeds}
@@ -32,7 +37,15 @@ const Feeds = ({navigation}: homeStackProp) => {
             showsVerticalScrollIndicator={false}
             />
           </ScrollView>
-        </View>
+   
+              </>
+             ): (
+               <View style={styles.loader}>
+                 <FeedsLoader />
+               </View>
+             )
+           }
+       </View>
     )
 }
 

@@ -55,5 +55,10 @@ export const styles = StyleSheet.create({
         textAlign: "center",
         ...Fonts.body3,
         color: Colors.white
+    },
+    img: {
+        width: 130,
+        height: 130,
+        
     }
 })

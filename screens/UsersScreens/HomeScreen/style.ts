@@ -61,5 +61,7 @@ export const styles = StyleSheet.create({
     alignSelf: "center",
     paddingBottom: 40
   },
-
+loader: {
+  height: "100%"
+}
 });

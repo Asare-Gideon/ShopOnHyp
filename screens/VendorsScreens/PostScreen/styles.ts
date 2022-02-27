@@ -4,24 +4,16 @@ import { Colors, Fonts, Sizes } from "../../../constants/Layout";
 export const styles = StyleSheet.create({
   main: {
     flex: 1,
-    backgroundColor: Colors.warmWhite,
+    backgroundColor: Colors.primary,
     width: Sizes.width,
     paddingTop: Sizes.paddingTop,
   },
-  header: {
-    width: "100%",
-    alignItems: "center",
-    paddingTop: 10,
-  },
-  headerText: {
-    ...Fonts.body2,
-    fontSize: 24,
-    color: Colors.darkgray,
-  },
-  contentCont: {
+ contentCont: {
     paddingLeft: 15,
     paddingRight: 15,
     paddingTop: 20,
+    backgroundColor: Colors.warmWhite,
+    flex: 0.9
   },
   image: {
     width: 100,

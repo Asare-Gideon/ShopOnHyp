@@ -17,5 +17,8 @@ headerTitle: {
  ...Fonts.h2,
  color: Colors.deepDarkGray,
  marginBottom: 15,
+},
+loader: {
+    height: "100%"
 }
 })

@@ -4,7 +4,6 @@ import {
 } from "@react-navigation/native-stack";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { ImageSourcePropType } from "react-native";
-import { CompositeNavigationProp, RouteProp } from "@react-navigation/core";
 
 export type MainStackParams = {
   Initial: undefined;
@@ -45,6 +44,14 @@ export interface itemProp {
   price: number;
   like?: boolean;
   navigation: NativeStackNavigationProp<homeStackParams>;
+}
+export interface VendorItemProp {
+  image: ImageSourcePropType;
+  text: string,
+  title: string;
+  price: number;
+  like?: boolean;
+  navigation: NativeStackNavigationProp<postStackNavParams>;
 }
 export interface categoriesProp {
   title: string;
@@ -108,7 +115,9 @@ export interface followingProp {
 export interface searchHeaderProp {
   navigation: NativeStackNavigationProp<homeStackParams>;
 }
-
+export interface vendorSearchHeaderProp {
+  navigation: NativeStackNavigationProp<postStackNavParams>;
+}
 export interface accountComponentProp {
   Icon?: any;
   IconName?: string;
@@ -199,3 +208,10 @@ export type AdminParams = {
   Notification: undefined,
   Account: undefined
 } 
+export type postStackNavParams = {
+  InitialPostScreen : undefined,
+  Detail : undefined
+  Notification: undefined;
+}
+
+export type PostStackProps = NativeStackScreenProps<postStackNavParams>;
