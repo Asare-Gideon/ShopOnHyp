@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         paddingTop: Sizes.paddingTop,
         backgroundColor: Colors.warmWhite,
+        height: Sizes.height
     },
   header: {
    width: "100%",
@@ -31,5 +32,7 @@ export const styles = StyleSheet.create({
       justifyContent: "center",
       height: "100%"
 
-  }
+  },
+noContent: {
+}
 })

@@ -12,7 +12,7 @@ interface ImageType {
 
 const images : ImageType = {
  introScreen : require("../assets/images/img2.jpg") ,
-addImage:  require("../assets/images/add.png") ,
+addImage:  require("../assets/images/logo.png") ,
 carts:  require("../assets/images/carts.png") ,
  sliders : [
    require("../assets/images/slider1.png"),

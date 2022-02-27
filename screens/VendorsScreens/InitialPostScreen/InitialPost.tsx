@@ -1,6 +1,6 @@
 import { Feather } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, FlatList, ScrollView } from 'react-native';
+import { View, Text, Image, FlatList, ScrollView } from 'react-native';
 import { styles } from './styles';
 import Item from '../../../components/Items';
 import { itemsData } from '../../../constants/Data';
@@ -12,11 +12,13 @@ import WishListLoader from '../../../components/WishListLoader';
 import VendorProduct from '../../../components/VendorProducts';
 import VendorSearchHeader from '../../../components/VendorSearchHeader';
 import { Button, FAB } from 'react-native-elements';
-import { Colors } from '../../../constants/Layout';
+import { Colors, Fonts, Sizes } from '../../../constants/Layout';
+import images from '../../../constants/Images';
 
 const InitialPost = ({ navigation }: PostStackProps) => {
 	const dispatch = useAppDispatch();
 	const [ isLoaded, setIsLoaded ] = useState<boolean>(true);
+	const [ isProduct, setIsProduct ] = useState<boolean>(false);
 	const renderMostViewedProducts = ({ item }: any) => (
 		<VendorProduct
 			image={item.image}
@@ -40,16 +42,50 @@ const InitialPost = ({ navigation }: PostStackProps) => {
 			</View>
 			{isLoaded ? (
 				<ScrollView style={styles.viewedProducts}>
-					<Text style={styles.headerText}>All Products</Text>
-					{/*LOVE PRODUCTS */}
-					<FlatList
-						renderItem={renderMostViewedProducts}
-						data={itemsData}
-						keyExtractor={(item) => item.id}
-						numColumns={2}
-						showsVerticalScrollIndicator={false}
-						contentContainerStyle={{ paddingBottom: 50 }}
-					/>
+					{isProduct ? (
+						<View>
+							<Text style={styles.headerText}>All Products</Text>
+							{/*LOVE PRODUCTS */}
+							<FlatList
+								renderItem={renderMostViewedProducts}
+								data={itemsData}
+								keyExtractor={(item) => item.id}
+								numColumns={2}
+								showsVerticalScrollIndicator={false}
+								contentContainerStyle={{ paddingBottom: 50 }}
+							/>
+						</View>
+					) : (
+						<View
+							style={{
+								width: '90%',
+								height: '100%',
+								flex: 1,
+								paddingLeft: 0,
+								alignItems: 'center',
+								justifyContent: 'center'
+							}}
+						>
+							<View style={{}}>
+								<Image
+									source={images.addImage}
+									style={{
+										height: 200,
+										width: 150
+									}}
+								/>
+								<Text
+									style={{
+										...Fonts.body2,
+										color: Colors.deepDarkGray,
+										paddingLeft: 10
+									}}
+								>
+									No Product added
+								</Text>
+							</View>
+						</View>
+					)}
 				</ScrollView>
 			) : (
 				<View style={styles.loader}>
