@@ -11,7 +11,7 @@ import { styles } from './styles';
 
 const Carts = ({ navigation }: homeStackProp) => {
 	const dispatch = useAppDispatch();
-	const [ isCarts, setIsCarts ] = useState<boolean>(false);
+	const [ isCarts, setIsCarts ] = useState<boolean>(true);
 
 	const handleNav = () => {
 		dispatch(setBottomNav(true));

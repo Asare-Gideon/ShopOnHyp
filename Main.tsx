@@ -12,7 +12,7 @@ import VendorNavigation from './navigation/VendorNavigation';
 export default function Main() {
 	const isLoadingComplete = useCachedResources();
 	const [ isLogIn, setIsLogIn ] = React.useState<boolean>(true);
-	const [ isUser, setIsUser ] = React.useState('vendor');
+	const [ isUser, setIsUser ] = React.useState('user');
 
 	if (!isLoadingComplete) {
 		return null;

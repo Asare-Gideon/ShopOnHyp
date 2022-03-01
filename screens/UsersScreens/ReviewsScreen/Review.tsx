@@ -59,7 +59,11 @@ const Review = ({ navigation }: accouontProp) => {
 			</View>
 
 			<ScrollView style={styles.contentCont}>
-				{nav.pending ? <PendingReviews /> : nav.completed ? <CompletedReviews /> : null}
+				{nav.pending ? (
+					<PendingReviews navigation={navigation} />
+				) : nav.completed ? (
+					<CompletedReviews navigation={navigation} />
+				) : null}
 			</ScrollView>
 		</View>
 	);

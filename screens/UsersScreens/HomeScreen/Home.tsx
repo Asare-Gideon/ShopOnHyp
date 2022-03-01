@@ -17,7 +17,7 @@ import HomeLoader from '../../../components/HomeLoader';
 const Home = ({ navigation }: homeStackProp) => {
 	const [ data, setData ] = useState(categoriesData);
 	const dispatch = useAppDispatch();
-	const [ isLoaded, setIsLoaded ] = useState<boolean>(false);
+	const [ isLoaded, setIsLoaded ] = useState<boolean>(true);
 	const handleSelected = (category: any) => {
 		const selectedItem = data.map((item) => {
 			if (category.id == item.id) {
