@@ -70,6 +70,13 @@ export interface cartsProp {
   price: number;
   navigation: NativeStackNavigationProp<homeStackParams>;
 }
+export interface orderItemProp {
+  image: ImageSourcePropType;
+  title: string;
+  text: string;
+  price: number;
+  date: any
+}
 
 export type categoriesDataTyp = {
   id: string;
